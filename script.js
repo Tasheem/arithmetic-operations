@@ -17,7 +17,12 @@ const multiply = (num1, num2) => {
 }
 
 const combo = (num1, num2) => {
-    
+    const sum = add(num1, num2);
+    const difference = subtract(num1, num2);
+
+    const result = multiply(sum, difference);
+    console.log(`Combo: ${result}`);
+    return result;
 }
 
 const isValidType = (num1, num2) => {
@@ -47,6 +52,8 @@ const displayResult = (event) => {
         result = subtract(num1, num2);
     else if(button.id === 'multiply-btn')
         result = multiply(num1, num2);
+    else if(button.id === 'combo-btn')
+        result = combo(num1, num2);
     
     outputDiv.textContent = result;
 }
