@@ -1,0 +1,66 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.card-container {
+    width: 60vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-left: 15vw;
+}
+
+.card {
+    width: 300px;
+    height: 200px;
+    background-color: rgba(199, 199, 199, 0.638);
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgba(148, 147, 147, 0.739);
+}
+
+.output {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: rgba(152, 89, 89, 0.999);
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    width: 99%;
+}
+
+.input-container > input {
+    height: 30px;
+    text-align: center;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: rgba(152, 89, 89, 0.999);
+    color: rgba(152, 89, 89, 0.999);
+}
+
+.input-container > input::placeholder {
+    color: rgba(152, 89, 89, 0.999);
+}
+
+.run-btn {
+    width: 90px; 
+    height: 30px;
+    margin-top: 30px;
+    border-style: solid;
+    border-radius: 20px;
+    background-color: rgba(152, 89, 89, 0.999);
+    border-color: rgba(152, 89, 89, 0.999);
+    cursor: pointer;
+}
+
+.run-btn:hover {
+    background-color: rgba(197, 156, 156, 0.999);
+}
