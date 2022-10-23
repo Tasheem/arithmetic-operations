@@ -20,7 +20,13 @@ const combo = (num1, num2) => {
     const sum = add(num1, num2);
     const difference = subtract(num1, num2);
 
-    const result = multiply(sum, difference);
+    /*
+    * ((A + B) + (A - B) * (A - B))
+    * The assumption here is that "function #2" mentioned
+    * in the assignment description refers to the subtract
+    * function.
+    * */
+    const result = add(sum, multiply(difference, difference));
     console.log(`Combo: ${result}`);
     return result;
 }
