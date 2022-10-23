@@ -1,33 +1,16 @@
 const add = (num1, num2) => {
-    num1 = Number(num1);
-    num2 = Number(num2);
-    if(!isValidType(num1, num2)) {
-        console.error('Two numbers must be entered into the add() function.');
-        return NaN;
-    }
-
     const result = num1 + num2;
     console.log(`Add: ${result}`);
     return result;
 }
 
 const subtract = (num1, num2) => {
-    if(!isValidType(num1, num2)) {
-        console.error('Two numbers must be entered into the subtract() function.');
-        return NaN;
-    }
-
     const result = num1 - num2;
     console.log(`Subtract: ${result}`);
     return result;
 }
 
 const multiply = (num1, num2) => {
-    if(!isValidType(num1, num2)) {
-        console.error('Two numbers must be entered into the multiply() function.');
-        return NaN;
-    }
-
     const result = num1 * num2;
     console.log(`Multiply: ${result}`);
     return result;
@@ -44,23 +27,28 @@ const isValidType = (num1, num2) => {
 // Display output of operation in the card.
 const displayResult = (event) => {
     const button = event.target;
-    const userInputs = getInputs(button);
-
-    let result;
-    if(button.id === 'add-btn')
-        result = add(userInputs[0], userInputs[1]);
-    else if(button.id === 'subtract-btn')
-        result = subtract(userInputs[0], userInputs[1]);
-    else if(button.id === 'multiply-btn')
-        result = multiply(userInputs[0], userInputs[1]);
-    
     const card = button.parentElement;
     const outputDiv = card.children[0];
 
-    if(isNaN(result))
+    let [num1, num2] = getInputs(button);
+    num1 = Number(num1);
+    num2 = Number(num2);
+
+    if(!isValidType(num1, num2)) {
+        console.error('Two numbers must be provided.');
         outputDiv.textContent = '';
-    else
-        outputDiv.textContent = result;
+        return;
+    }
+
+    let result;
+    if(button.id === 'add-btn')
+        result = add(num1, num2);
+    else if(button.id === 'subtract-btn')
+        result = subtract(num1, num2);
+    else if(button.id === 'multiply-btn')
+        result = multiply(num1, num2);
+    
+    outputDiv.textContent = result;
 }
 
 // Add event listener to each button on the page.
