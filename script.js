@@ -1,23 +1,3 @@
-document.getElementById('add-btn').addEventListener('click',
-(event) => {
-    const userInputs = getInputs(event.target);
-    const result = add(userInputs[0], userInputs[1]);
-
-    const parent = event.target.parentElement;
-    const outputDiv = parent.children[0];
-    outputDiv.textContent = result;
-});
-
-document.getElementById('subtract-btn').addEventListener('click',
-(event) => {
-    const userInputs = getInputs(event.target);
-    const result = subtract(userInputs[0], userInputs[1]);
-    
-    const parent = event.target.parentElement;
-    const outputDiv = parent.children[0];
-    outputDiv.textContent = result;
-})
-
 const add = (num1, num2) => {
     if(typeof num1 !== 'number' || typeof num2 !== 'number') {
         console.log('Two numbers must be entered into the add() function.');
@@ -48,3 +28,23 @@ const getInputs = (element) => {
 
     return [num1, num2];
 }
+
+document.getElementById('add-btn').addEventListener('click',
+(event) => {
+    const userInputs = getInputs(event.target);
+    const result = add(userInputs[0], userInputs[1]);
+
+    const parent = event.target.parentElement;
+    const outputDiv = parent.children[0];
+    outputDiv.textContent = result;
+});
+
+document.getElementById('subtract-btn').addEventListener('click',
+(event) => {
+    const userInputs = getInputs(event.target);
+    const result = subtract(userInputs[0], userInputs[1]);
+    
+    const parent = event.target.parentElement;
+    const outputDiv = parent.children[0];
+    outputDiv.textContent = result;
+})
