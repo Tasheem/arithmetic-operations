@@ -25,6 +25,12 @@ const combo = (num1, num2) => {
     return result;
 }
 
+const concat = (str1, str2) => {
+    const result = str1 + str2;
+    console.log(`Concat: ${result}`);
+    return result;
+}
+
 const isValidType = (num1, num2) => {
     return !isNaN(num1) && !isNaN(num2);
 }
@@ -35,11 +41,17 @@ const displayResult = (event) => {
     const card = button.parentElement;
     const outputDiv = card.children[0];
 
-    let [num1, num2] = getInputs(button);
-    num1 = Number(num1);
-    num2 = Number(num2);
+    let [arg1, arg2] = getInputs(button);
+    if(button.id === 'concat-btn') {
+        outputDiv.textContent = concat(arg1, arg2);
+        return;
+    }
 
-    if(!isValidType(num1, num2)) {
+    // All logic below deals only with number functions.
+    arg1 = Number(arg1);
+    arg2 = Number(arg2);
+
+    if(!isValidType(arg1, arg2)) {
         console.error('Two numbers must be provided.');
         outputDiv.textContent = '';
         return;
@@ -47,13 +59,13 @@ const displayResult = (event) => {
 
     let result;
     if(button.id === 'add-btn')
-        result = add(num1, num2);
+        result = add(arg1, arg2);
     else if(button.id === 'subtract-btn')
-        result = subtract(num1, num2);
+        result = subtract(arg1, arg2);
     else if(button.id === 'multiply-btn')
-        result = multiply(num1, num2);
+        result = multiply(arg1, arg2);
     else if(button.id === 'combo-btn')
-        result = combo(num1, num2);
+        result = combo(arg1, arg2);
     
     outputDiv.textContent = result;
 }
@@ -69,8 +81,8 @@ runButtons.forEach(btn => {
 const getInputs = (button) => {
     const card = button.parentElement;
     const inputContainer = card.children[1];
-    const num1 = inputContainer.children[0].value;
-    const num2 = inputContainer.children[1].value;
+    const arg1 = inputContainer.children[0].value;
+    const arg2 = inputContainer.children[1].value;
 
-    return [num1, num2];
+    return [arg1, arg2];
 }
