@@ -11,7 +11,7 @@ const add = (num1, num2) => {
 
 const subtract = (num1, num2) => {
     if(!isValidType(num1, num2)) {
-        console.log('Two numbers must be entered into the add() function.');
+        console.log('Two numbers must be entered into the subtract() function.');
         return NaN;
     }
 
