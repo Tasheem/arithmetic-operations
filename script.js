@@ -1,37 +1,37 @@
-const add = (num1, num2) => {
-    const result = num1 + num2;
+const add = (A, B) => {
+    const result = A + B;
     console.log(`Add: ${result}`);
     return result;
 }
 
-const subtract = (num1, num2) => {
-    const result = num1 - num2;
+const subtract = (A, B) => {
+    const result = A - B;
     console.log(`Subtract: ${result}`);
     return result;
 }
 
-const multiply = (num1, num2) => {
-    const result = num1 * num2;
+const multiply = (A, B) => {
+    const result = A * B;
     console.log(`Multiply: ${result}`);
     return result;
 }
 
-const combo = (num1, num2) => {
+const combo = (A, B) => {
     // (((a+b)+(a-b))*subtract(a,b))
-    const result = multiply(add(add(num1, num2), subtract(num1, num2)), 
-        subtract(num1, num2));
+    const result = multiply(add(add(A, B), subtract(A, B)), 
+        subtract(A, B));
     console.log(`Combo: ${result}`);
     return result;
 }
 
-const concat = (str1, str2) => {
-    const result = str1 + str2;
+const concat = (A, B) => {
+    const result = A + B;
     console.log(`Concat: ${result}`);
     return result;
 }
 
-const isValidType = (num1, num2) => {
-    return !isNaN(num1) && !isNaN(num2);
+const isValidType = (A, B) => {
+    return !isNaN(A) && !isNaN(B);
 }
 
 /* -------------------------------- Start UI logic -------------------------------- */
