@@ -17,16 +17,9 @@ const multiply = (num1, num2) => {
 }
 
 const combo = (num1, num2) => {
-    const sum = add(num1, num2);
-    const difference = subtract(num1, num2);
-
-    /*
-    * ((A + B) + (A - B) * (A - B))
-    * The assumption here is that "function #2" mentioned
-    * in the assignment description refers to the subtract
-    * function.
-    * */
-    const result = add(sum, multiply(difference, difference));
+    // (((a+b)+(a-b))*subtract(a,b))
+    const result = multiply(add(add(num1, num2), subtract(num1, num2)), 
+        subtract(num1, num2));
     console.log(`Combo: ${result}`);
     return result;
 }
@@ -41,6 +34,7 @@ const isValidType = (num1, num2) => {
     return !isNaN(num1) && !isNaN(num2);
 }
 
+/* -------------------------------- Start UI logic -------------------------------- */
 // Display output of operation in the card.
 const displayResult = (event) => {
     const button = event.target;
@@ -92,3 +86,5 @@ const getInputs = (button) => {
 
     return [arg1, arg2];
 }
+
+/* -------------------------------- End UI logic -------------------------------- */
